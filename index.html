@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certificado de Vacunación - MINSA</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  .card {
+    background: white;
+    width: 100%;
+    max-width: 420px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  }
+
+  /* HEADER */
+  .header {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 14px;
+    gap: 10px;
+  }
+  .header-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .escudo {
+    width: 48px;
+    height: 48px;
+  }
+  .minsa-label {
+    display: flex;
+    flex-direction: column;
+  }
+  .peru-text {
+    background: #d40000;
+    color: white;
+    font-weight: 900;
+    font-size: 13px;
+    padding: 2px 6px;
+    letter-spacing: 1px;
+  }
+  .ministerio-text {
+    background: #5a5a5a;
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+    line-height: 1.3;
+  }
+
+  /* CAMPANA */
+  .campaign {
+    text-align: center;
+    padding: 20px 16px 12px;
+  }
+  .campaign-title {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .lo1 { color: #1a73c8; }
+  .lo2 { color: #e91e8c; }
+  .needle {
+    color: #1a73c8;
+    font-size: 20px;
+    margin-right: 2px;
+  }
+
+  /* QR */
+  .qr-section {
+    display: flex;
+    justify-content: center;
+    padding: 16px 0 20px;
+  }
+  .qr-section canvas {
+    border: 2px solid #222;
+  }
+
+  /* NOMBRE */
+  .nombre {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 900;
+    color: #111;
+    padding: 4px 16px 16px;
+    line-height: 1.3;
+    letter-spacing: 0.3px;
+  }
+
+  /* DNI / EDAD */
+  .datos {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 20px 12px;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 2px solid #1a73c8;
+    margin: 0 16px;
+  }
+  .datos span b { color: #111; }
+
+  /* VACUNACION */
+  .vacuna-label {
+    text-align: center;
+    color: #1a73c8;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 14px 0 12px;
+    letter-spacing: 0.5px;
+  }
+
+  /* DOSIS BANNER */
+  .dosis-banner {
+    background: #1a73c8;
+    color: white;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 900;
+    padding: 18px;
+    letter-spacing: 1px;
+  }
+
+  /* VERIFICAR */
+  .verificar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    background: #f9f9f9;
+    border-top: 1px solid #eee;
+    margin-top: 2px;
+  }
+  .verificar p {
+    font-size: 13px;
+    font-weight: 600;
+    color: #222;
+    line-height: 1.5;
+    max-width: 140px;
+  }
+  .lector-btn {
+    background: #1a73c8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 14px 18px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .lector-btn svg {
+    width: 38px;
+    height: 38px;
+    fill: white;
+  }
+
+  /* REGRESAR */
+  .regresar {
+    text-align: center;
+    padding: 16px;
+  }
+  .regresar a {
+    color: #1a73c8;
+    font-size: 14px;
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <!-- HEADER MINSA -->
+  <div class="header">
+    <div class="header-logo">
+      <!-- Escudo Peru SVG simplificado -->
+      <svg class="escudo" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="30" cy="30" rx="28" ry="28" fill="#fff" stroke="#ccc" stroke-width="1"/>
+        <ellipse cx="30" cy="30" rx="24" ry="24" fill="#e8f0fe"/>
+        <!-- Escudo simplificado -->
+        <rect x="14" y="18" width="32" height="26" rx="3" fill="#c8102e"/>
+        <rect x="14" y="18" width="16" height="26" rx="3" fill="#ffffff"/>
+        <rect x="14" y="18" width="16" height="26" fill="#ffffff"/>
+        <circle cx="22" cy="28" r="5" fill="#4a90d9"/>
+        <rect x="30" y="20" width="16" height="12" fill="#2d8a4e"/>
+        <rect x="30" y="32" width="16" height="12" fill="#f5c518"/>
+        <!-- Corona -->
+        <path d="M18 18 L22 14 L26 18 Z" fill="#f5c518"/>
+        <path d="M26 18 L30 13 L34 18 Z" fill="#f5c518"/>
+        <path d="M34 18 L38 14 L42 18 Z" fill="#f5c518"/>
+      </svg>
+      <div class="minsa-label">
+        <div class="peru-text">PERÚ</div>
+        <div class="ministerio-text">Ministerio<br>de Salud</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CAMPAÑA -->
+  <div class="campaign">
+    <div class="campaign-title">
+      <span class="needle">💉</span><span class="lo1">Lo vacuno,</span><br>
+      <span class="lo2">lo protejo</span>
+    </div>
+  </div>
+
+  <!-- QR CODE -->
+  <div class="qr-section">
+    <img width="200" height="200" style="display:block; border: 2px solid #222;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+AQAAAAA8Q0GdAAADiklEQVR4nO2bTW7jOhCEP5oCZtm+QY5C32yQm7WO4htQywAt1Fs06WzeIh4EyDPfCEbg2Fyo1H/FKrqIL13n5Wvr4O/C/+pC1AFqb7UT5pKU72lhUm8AtHgFMM+gbpJqz/8atMRLvmhVUl8M9QUo5Ya5JMzD3muHowDBHsBRtp+/x+9diHqDVvOvXB3JJddM8tqpq8V6e7yrwUbbwgtgfQud7DPzXwPMU6gFGzulBftHoQaFneMq7VuAieM1wPxRD//3F7BgDx+XZ0MLqFKVgDDV+fV6qBMdJiDxYpLyIbSAWC3WF47CUeIoMbJ9z/Fdrpyl1M5mqvIXAfPVS71hXnuTPMzDhDm02sGSp7VF69rDvHagZWmHSfIqr/Ks9OVQexKVgCoPU/LSDLfksB5LIQMtSR3Mq1Tlo6sz0h5bNdZkdT9IaQCzgS+3+0Cd3GOGOeTMyjHtSWDUWS7WFyDMN/h1/x2mei+wf5RbuZK85Xzz+Pl7/N6FzMhmXScra2Pn1Yks/BUnF6aa0OYgy5lVe1Nv+RxWQ51FDVWuCTZDjK3KSJEEDXP1mdgz4Qdk81itm82yTdlkVrc66k09P/clJ1deSbxTPKly9RamyK9WZKTZtXJ3maIo5kCYkqIsOK+P23llg4CNpg7HjUz4e6mdjf3H7/H7F9qYy/VeIkVg83q//brfNhODkb4KmK9e6i0p99xpOpDeR9KVjPtaGT7U7+zhMVC3ZGtpfwz35xXAPBnrVju1k8pJmNfhg6j2Fik1vAKY51CbwvyTq2jEN20+FpzXF8w5ykaT3gM2OMvtvLba2eC8NnXOt+XUQilGMpPJPJi5CVOmwYJ1PfZcGjAHORlySlLxFXUzYZ57zPR3qjwFNIC5/VwOtZPR/PRtyeZW5wNZMNZ9+Dujuqf1M8BOGW051HN/ATx8LshYVyloK6J+CKQtvY/UGdIEgXFiYTXUKRz1ISYEjfRwO+NzlvS5fLh4GgPrsd0m9f8lvY9OnTNr5nkqh6Ofs2BdXwYzgaSgMRpaSxcgaOr7eX0VMF+9xrkUjfNmqQwnOx0NvK/n+MyzhXNIjVgPc3P4IAv28Hm+DgjzOv3NTO9PK/8VwDyNug9zMyOreWCDbHHLxlrp4TJ0JFX5ODebysMrgHlqYW5AArajxHHbYIOP8vu87ufbO6YVT8/CtPamIuqPA9Lj0PhqsS5/fwHxv1n4D/eCsypV8tFWAAAAAElFTkSuQmCC" alt="Código QR" />
+  </div>
+
+  <!-- NOMBRE -->
+  <div class="nombre">HERNAN PAUL QUISPE PADILLA</div>
+
+  <!-- DNI / EDAD -->
+  <div class="datos">
+    <span>DNI: <b>18XXXX35</b></span>
+    <span>Edad: <b>55 AÑOS</b></span>
+  </div>
+
+  <!-- LABEL VACUNACION -->
+  <div class="vacuna-label">VACUNACIÓN COVID-19</div>
+
+  <!-- DOSIS BANNER -->
+  <div class="dosis-banner">CON TERCERA DOSIS</div>
+
+  <!-- VERIFICAR -->
+  <div class="verificar">
+    <p>Verifica la validez de un código QR</p>
+    <button class="lector-btn">
+      <!-- QR icon SVG -->
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 3h7v7H3V3zm1 1v5h5V4H4zm1 1h3v3H5V5zm8-2h7v7h-7V3zm1 1v5h5V4h-5zm1 1h3v3h-3V5zM3 13h7v7H3v-7zm1 1v5h5v-5H4zm1 1h3v3H5v-3zm8 0h2v2h-2v-2zm2 2h2v2h-2v-2zm2-2h2v2h-2v-2zm0 4h2v2h-2v-2zm-4 0h2v2h-2v-2zm2-2h2v2h-2v-2z"/>
+      </svg>
+      LECTOR QR
+    </button>
+  </div>
+
+  <!-- REGRESAR -->
+  <div class="regresar">
+    <a href="#">Regresar al inicio</a>
+  </div>
+
+</div>
+
+<script>
+// QR Code generator - pure JS implementation
+const QR_DATA = "HERNAN PAUL QUISPE PADILLA | DNI: 18857335 | 55 AÑOS | COVID-19 TERCERA DOSIS | MINSA PERU";
+
+function generateQR() {
+  const canvas = document.getElementById('qrCanvas');
+  const ctx = canvas.getContext('2d');
+  const size = 200;
+  canvas.width = size;
+  canvas.height = size;
+
+  // Use Google Charts API to generate QR
+  const img = new Image();
+  img.crossOrigin = "anonymous";
+  img.onload = function() {
+    ctx.drawImage(img, 0, 0, size, size);
+  };
+  img.onerror = function() {
+    // Fallback: use QR Server API
+    const img2 = new Image();
+    img2.crossOrigin = "anonymous";
+    img2.onload = function() { ctx.drawImage(img2, 0, 0, size, size); };
+    img2.src = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + encodeURIComponent(QR_DATA);
+  };
+  img.src = "https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=" + encodeURIComponent(QR_DATA) + "&choe=UTF-8";
+}
+
+window.onload = generateQR;
+</script>
+
+</body>
+</html>
